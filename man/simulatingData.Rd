@@ -1,12 +1,11 @@
-\name{simulate.data}
-\alias{simulate.data}
-%- Also NEED an '\alias' for EACH other topic documented here.
+\name{simulatingData}
+\alias{simulatingData}
 \title{
 Generate Simulated Data Set}
 \description{
 Generate Simulated Data Set, which can be used to compare type 1 error rate and power for different methods}
 \usage{
-simulate.data(seed, N, m = 1000, missing.prop, b4.value)
+simulatingData(seed, N, m = 1000, missing.prop, b4.value)
 }
 \arguments{
   \item{seed}{random seed}
@@ -34,6 +33,6 @@ impute.times = 10  ## The number of imputations
 b4.value = 0.02    ## The effect size
 
 seed = 1
-data = simulate.data(seed,N,m,missing.prop, b4.value)
+data = simulatingData(seed,N,m,missing.prop, b4.value)
 
 }

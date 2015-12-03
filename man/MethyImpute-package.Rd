@@ -34,7 +34,7 @@ impute.times = 10  ## The number of imputations
 b4.value = 0.02    ## The effect size
 
 seed = 1
-data = simulate.data(seed,N,m,missing.prop, b4.value)
+data = simulatingData(seed,N,m,missing.prop, b4.value)
 
 Y = data$reference.Y
 pheno = data$pheno
@@ -47,5 +47,5 @@ m=30
 maxit = 5
 max.refernce.methy = 30
 defaultMethod = c("norm", "logreg", "polyreg", "polr")
-#imp = methy.mice(Y, pheno, missing.index, reference.index, missing.cov.name, complete.cov.name, max.refernce.methy = 30, m = 30, maxit = 5, defaultMethod = c("norm", "logreg", "polyreg", "polr"))
+#imp = methy.mice(Y, pheno, missing.index, reference.index, missing.cov.name, complete.cov.name, #max.refernce.methy = 30, m = 30, maxit = 5, defaultMethod = c("norm", "logreg", "polyreg", "polr"))
 }

@@ -56,7 +56,7 @@ methy.mice<-function(Y,pheno,missing.index, reference.index, missing.cov.name,co
     #pred[3,3] = 0
     ## m : number of multiple imputations
     ## use norm method to impute the missing data
-    imp <- mice(test.data, m = m,maxit= maxit,pred = pred,defaultMethod = defaultMethod)
+    imp <- mice(test.data, m = m,maxit= maxit,predictorMatrix = pred,defaultMethod = defaultMethod)
     imp
 }
 
@@ -114,7 +114,7 @@ methy.mice2<-function(Y,pheno,missing.index, reference.index, missing.cov.name,c
     #pred[3,3] = 0
     ## m : number of multiple imputations
     ## use norm method to impute the missing data
-    imp <- mice(test.data, m = m,maxit= maxit,pred = pred,defaultMethod = defaultMethod)
+    imp <- mice(test.data, m = m,maxit= maxit,predictorMatrix = pred,defaultMethod = defaultMethod)
     imp
 }
 

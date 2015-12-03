@@ -5,10 +5,13 @@
 	Multiple Imputation Based Method
 }
 \description{
-	
+		Multiple Imputation Based Method with two step variable selection 
 }
 \usage{
-methy.mice(Y, pheno, missing.index, reference.index, missing.cov.name, complete.cov.name, max.refernce.methy = 30, m = 30, maxit = 5, defaultMethod = c("norm", "logreg", "polyreg", "polr"))
+methy.mice(Y, pheno, missing.index, 
+reference.index, missing.cov.name, complete.cov.name,
+ max.refernce.methy = 30, m = 30, maxit = 5, 
+ defaultMethod = c("norm", "logreg", "polyreg", "polr"))
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
@@ -81,48 +84,6 @@ Built-in elementary imputation methods are:
 \item{sample}{Random sample from the observed values (any)}
 \item{fastpmm}{Experimental: Fast predictive mean matching using C++ (any)}
 }
-
-These corresponding functions are coded in the \code{mice} library under
-names \code{mice.impute.method}, where \code{method} is a string with the
-name of the elementary imputation method name, for example \code{norm}. The
-\code{method} argument specifies the methods to be used.  For the \code{j}'th
-column, \code{mice()} calls the first occurence of
-\code{paste('mice.impute.',method[j],sep='')} in the search path.  The
-mechanism allows uses to write customized imputation function,
-\code{mice.impute.myfunc}. To call it for all columns specify
-\code{method='myfunc'}.  To call it only for, say, column 2 specify
-\code{method=c('norm','myfunc','logreg',\dots{})}.
-
-\emph{Passive imputation:} \code{mice()} supports a special built-in method,
-called passive imputation. This method can be used to ensure that a data
-transform always depends on the most recently generated imputations.  In some
-cases, an imputation model may need transformed data in addition to the
-original data (e.g. log, quadratic, recodes, interaction, sum scores, and so
-on).
-
-Passive imputation maintains consistency among different transformations of
-the same data. Passive imputation is invoked if \code{~} is specified as the
-first character of the string that specifies the elementary method.
-\code{mice()} interprets the entire string, including the \code{~} character,
-as the formula argument in a call to \code{model.frame(formula,
-data[!r[,j],])}. This provides a simple mechanism for specifying determinstic
-dependencies among the columns. For example, suppose that the missing entries
-in variables \code{data$height} and \code{data$weight} are imputed. The body
-mass index (BMI) can be calculated within \code{mice} by specifying the
-string \code{'~I(weight/height^2)'} as the elementary imputation method for
-the target column \code{data$bmi}.  Note that the \code{~} mechanism works
-only on those entries which have missing values in the target column. You
-should make sure that the combined observed and imputed parts of the target
-column make sense. An easy way to create consistency is by coding all entries
-in the target as \code{NA}, but for large data sets, this could be
-inefficient.  Note that you may also need to adapt the default
-\code{predictorMatrix} to evade linear dependencies among the predictors that
-could cause errors like \code{Error in solve.default()} or \code{Error:
-system is exactly singular}. Though not strictly needed, it is often useful
-to specify \code{visitSequence} such that the column that is imputed by the
-\code{~} mechanism is visited each time after one of its predictors was
-visited. In that way, deterministic relation between columns will always be
-synchronized.
 }
 \author{
 Chong Wu}

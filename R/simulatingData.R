@@ -58,7 +58,7 @@ s2-d2sum
 ## m: Total CpG sites                                                    #####
 ## missing.prop: missing proportion                                      #####
 ##############################################################################
-simulate.data <-function(seed,N,m=1000,missing.prop, b4.value)
+simulatingData <-function(seed,N,m=1000,missing.prop, b4.value)
 {  #######################################################################
     ## set the simualtion parameter and get the simulation data set    ####
     ## I used the same way as Houseman 2014 reference free             ####
