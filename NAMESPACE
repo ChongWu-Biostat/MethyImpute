@@ -1,0 +1,5 @@
+export(methy.mice,projection.based,simulate.data)
+importFrom("stats", "coefficients", "lm", "rnorm")
+import(truncnorm)
+import(mice)
+

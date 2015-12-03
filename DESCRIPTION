@@ -1,0 +1,12 @@
+Package: MethyImpute
+Type: Package
+Title: Imputing the missing covariates via methylation data
+Version: 1.0
+Date: 2015-12-02
+Author: Chong Wu
+Maintainer: Chong Wu <wuxx0845@umn.edu>
+Description: DNA methylation is a widely studied epigenetic mechanism and alterations in methylation patterns may be involved in the development of common diseases. Unlike inherited changes in genetic sequence, variation in site-specific methylation varies by tissue, developmental stage, disease status, and may be impacted by aging and exposure to environmental factors such as diet or smoking. These non-genetic factors are typically included in epigenome-wide association studies (EWAS) because they may be confounding factors to the association between methylation and disease. However, missing values in these variables can lead to reduced sample size and decrease the statistical power of EWAS. We propose a site selection and multiple imputation (MI) method to impute missing covariate values and to perform association tests in EWAS. Then, we compare this method to an alternative projection-based method. Through simulations, we show that the MI-based method is slightly conservative, but provides consistent estimates for effect size.
+License: GPL-2 | GPL-3
+Depends:  R (>= 3.1.1), truncnorm, mice
+
+
