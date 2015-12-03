@@ -6,7 +6,7 @@ We test it on R 3.2.1 in Linux server and 3.2.2 in Windows and Mac. *Note that f
 
 ```
 library(devtools)
-install_github("ChongWu-Biostat/MethyImpute") # install the prclust packages
+install_github("ChongWu-Biostat/MethyImpute") # install the MethyImpute packages
 ```
 
 ## Simulated the Methylation and Covariates
