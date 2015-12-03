@@ -37,12 +37,13 @@ m=30
 maxit = 5
 max.refernce.methy = 30
 defaultMethod = c("norm", "logreg", "polyreg", "polr")
+## Note that this function is kind of time consuming. But it is feasiable to apply it to ARIC data or other real data set. 
 imp = methy.mice(Y,pheno,missing.index, reference.index, missing.cov.name,complete.cov.name,max.refernce.methy = 30, m=30,maxit = 5,defaultMethod = c("norm", "logreg", "polyreg", "polr"))
 ```
 Then we can apply the standard analysis. For example, we can use linear regression to test the relation between the methylation value and the covariate we are interested in as follows.
 ```
-imputed.b4 = matrix(NA,50,5)
-  for ( i in 1:50) {
+imputed.b4 = matrix(NA,5,5)
+  for ( i in 1:5) {
     fit <- with(imp, lm(as.formula(paste(paste("methy",i,sep=""),"~ cell.1 + cell.2 + cell.3 +x1",sep =""))))
       fit.summary = summary(pool(fit))
       imputed.b4[i,1] = fit.summary[5,1] - 1.96 * fit.summary[5,2]
